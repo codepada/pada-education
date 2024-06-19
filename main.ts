@@ -1,6 +1,6 @@
 
 //% weight=0 color=#3CB371 icon="\uf135"  groups='["Motor for workshop", "Ultrasonic Sensor", "RGB LED", "Color Sensor"]'
-namespace RoboticWorkshop {
+namespace GigoWorkshop {
 
     ////////////////////////////////
     //          DDM Motor         //
