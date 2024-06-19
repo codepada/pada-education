@@ -813,7 +813,7 @@ namespace RoboticWorkshop {
 
 }
 
-//% weight=5 color=#E7734B icon="\uf110"
+//% color=#E7734B icon="\uf110"
 namespace GigoLED {
     //----------------------------------
     //led
