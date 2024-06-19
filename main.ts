@@ -839,89 +839,87 @@ namespace GigoSensor {
     }
     //----------------------------------
 
-    //% weight=5 color=#E7734B icon="\uf110"
-    namespace GigoLED {
+//% weight=5 color=#E7734B icon="\uf110"
+namespace GigoLED {
         //----------------------------------
         //led
-        export enum LEDChannel {
-            //% block="A (P19)"
-            A,
-            //% block="B (P14)"
-            B,
-            //% block="C (P2)"
-            C,
-            //% block="D (P8)"
-            D,
-            //% block="E (P15)"
-            E,
-            //% block="F (P13)"
-            F,
-            //% block="G (P12)"
-            G,
-            //% block="H (P1)"
-            H,
-        }
-        export let LEDChannels: { [key: number]: DigitalPin } = {
-            [LEDChannel.A]: DigitalPin.P19,
-            [LEDChannel.B]: DigitalPin.P14,
-            [LEDChannel.C]: DigitalPin.P2,
-            [LEDChannel.D]: DigitalPin.P8,
-            [LEDChannel.E]: DigitalPin.P15,
-            [LEDChannel.F]: DigitalPin.P13,
-            [LEDChannel.G]: DigitalPin.P12,
-            [LEDChannel.H]: DigitalPin.P1,
-        }
-        export enum LEDShaftonoff {
-            //% block="off"
-            LOW,
-            //% block="on"
-            HIGH,
+    export enum LEDChannel {
+        //% block="A (P19)"
+        A,
+        //% block="B (P14)"
+        B,
+        //% block="C (P2)"
+        C,
+        //% block="D (P8)"
+        D,
+        //% block="E (P15)"
+        E,
+        //% block="F (P13)"
+        F,
+        //% block="G (P12)"
+        G,
+        //% block="H (P1)"
+        H,
+    }
+    export let LEDChannels: { [key: number]: DigitalPin } = {
+        [LEDChannel.A]: DigitalPin.P19,
+        [LEDChannel.B]: DigitalPin.P14,
+        [LEDChannel.C]: DigitalPin.P2,
+        [LEDChannel.D]: DigitalPin.P8,
+        [LEDChannel.E]: DigitalPin.P15,
+        [LEDChannel.F]: DigitalPin.P13,
+        [LEDChannel.G]: DigitalPin.P12,
+        [LEDChannel.H]: DigitalPin.P1,
+    }
+    export enum LEDShaftonoff {
+        //% block="off"
+        LOW,
+        //% block="on"
+        HIGH,
 
-        }
+    }
         //----------------------------------
-        //% color=#FACB09
-        //% block="led $leds status $status"
-        //% status.min=0 status.max=1
-        //% leds.defl=lEDChannel.D
-        //% group="Led"
-        export function ledtest(leds: LEDChannel, status: number): void {
-            let ledg = LEDChannels[leds];
+    //% color=#FACB09
+    //% block="led $leds status $status"
+    //% status.min=0 status.max=1
+    //% leds.defl=lEDChannel.D
+    //% group="Led"
+    export function ledtest(leds: LEDChannel, status: number): void {
+        let ledg = LEDChannels[leds];
+        pins.digitalWritePin(ledg, status);
 
-            pins.digitalWritePin(ledg, status);
+    }
+
+    //% color=#FACB09
+    //% block="led $leds status $status"
+    //% status.defl=lEDShaftonoff.HIGH*
+    //% leds.defl=lEDChannel.D
+    //% group="Led"
+    export function led(leds: LEDChannel, status: LEDShaftonoff): void {
+        let ledg = LEDChannels[leds];
+        pins.digitalWritePin(ledg, status);
+
+    }
+    //% color=#FACB09
+    //toggle led
+    //% blockId=led block="led %pin $ledstate"
+    //% ledstate.shadow="toggleOnOff"
+    //% expandableArgumentMode="toggle"
+    //% pin.defl=lEDChannel.D
+    //% group="Led"
+    export function ledBrightness(pin: LEDChannel, ledstate: boolean): void {
+        if (ledstate) {
+            let pinled = LEDChannels[pin];
+            pins.digitalWritePin(pinled, 1);
 
         }
+        else {
+            let pinled = LEDChannels[pin];
+            pins.digitalWritePin(pinled, 0);
 
-        //% color=#FACB09
-        //% block="led $leds status $status"
-        //% status.defl=lEDShaftonoff.HIGH*
-        //% leds.defl=lEDChannel.D
-        //% group="Led"
-        export function led(leds: LEDChannel, status: LEDShaftonoff): void {
-            let ledg = LEDChannels[leds];
-
-            pins.digitalWritePin(ledg, status);
-
-        }
-        //% color=#FACB09
-        //toggle led
-        //% blockId=led block="led %pin $ledstate"
-        //% ledstate.shadow="toggleOnOff"
-        //% expandableArgumentMode="toggle"
-        //% pin.defl=lEDChannel.D
-        //% group="Led"
-        export function ledBrightness(pin: LEDChannel, ledstate: boolean): void {
-            if (ledstate) {
-                let pinled = LEDChannels[pin];
-                pins.digitalWritePin(pinled, 1);
-
-            }
-            else {
-                let pinled = LEDChannels[pin];
-                pins.digitalWritePin(pinled, 0);
-
-            }
         }
     }
+}
 
     //external sensor
     export enum SensorChannel {
