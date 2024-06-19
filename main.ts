@@ -296,7 +296,7 @@ namespace PlanetX_AILens {
     * TODO: Waiting for module initialize.
     */
     //% block="Initialize AI-Lens"
-    //% group="Basic" weight=100 subcategory=Vision
+    //% group="Basic" weight=100
     //% color=#00B1ED
     export function initModule(): void {
         let timeout = input.runningTime()
@@ -315,7 +315,7 @@ namespace PlanetX_AILens {
     //% block="Switch function as %fun"
     //% fun.fieldEditor="gridpicker"
     //% fun.fieldOptions.columns=3
-    //% group="Basic" weight=95 subcategory=Vision
+    //% group="Basic" weight=95 
     //% color=#00B1ED
     export function switchfunc(fun: FuncList): void {
         let funcBuff = pins.i2cReadBuffer(CameraAdd, 9)
@@ -328,7 +328,7 @@ namespace PlanetX_AILens {
     * TODO: Get the image in a frame
     */
     //% block="Get one image from AI-Lens"
-    //% group="Basic" weight=90 subcategory=Vision
+    //% group="Basic" weight=90 
     //% color=#00B1ED
     export function cameraImage(): void {
         DataBuff = pins.i2cReadBuffer(CameraAdd, 9)
@@ -339,7 +339,7 @@ namespace PlanetX_AILens {
     * TODO: Judge the image contains a ball
     */
     //% block="Image contains ball(s)"
-    //% group="Ball" weight=85 subcategory=Vision
+    //% group="Ball" weight=85 
     //% color=#00B1ED
     export function checkBall(): boolean {
         return DataBuff[0] == 7
@@ -347,7 +347,7 @@ namespace PlanetX_AILens {
     //% block="Image contains %ballcolor ball"
     //% group="Ball" weight=84
     //% ballcolor.fieldEditor="gridpicker"
-    //% ballcolor.fieldOptions.columns=2 subcategory=Vision
+    //% ballcolor.fieldOptions.columns=2 
     //% color=#00B1ED
     export function ballColor(ballcolor: ballColorList): boolean {
         if (DataBuff[0] == 7) {
@@ -358,7 +358,7 @@ namespace PlanetX_AILens {
         }
     }
     //% block="In the image get ball(s)' total"
-    //% group="Ball" weight=83 subcategory=Vision
+    //% group="Ball" weight=83 
     //% color=#00B1ED
     export function BallTotalNum(): number {
         if (DataBuff[0] == 7) {
@@ -374,7 +374,7 @@ namespace PlanetX_AILens {
     //% block="In the image get ball(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Ball" weight=80 subcategory=Vision
+    //% group="Ball" weight=80 
     //% color=#00B1ED
     export function ballData(status: Ballstatus): number {
         if (DataBuff[0] == 7) {
@@ -408,13 +408,13 @@ namespace PlanetX_AILens {
     * TODO: Judge whether there is a face in the picture
     */
     //% block="Image contains a face"
-    //% group="Face" weight=75 subcategory=Vision
+    //% group="Face" weight=75 
     //% color=#00B1ED
     export function checkFace(): boolean {
         return DataBuff[0] == 6
     }
     //% block="In the image get face(s)' total"
-    //% group="Face" weight=74 subcategory=Vision
+    //% group="Face" weight=74 
     //% color=#00B1ED
     export function faceTotalNum(): number {
         if (DataBuff[0] == 6) {
@@ -431,7 +431,7 @@ namespace PlanetX_AILens {
     //% block="In the image get face(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Face" weight=70 subcategory=Vision
+    //% group="Face" weight=70 
     //% color=#00B1ED
     export function faceData(status: Facestatus): number {
         if (DataBuff[0] == 6) {
@@ -469,7 +469,7 @@ namespace PlanetX_AILens {
     //% block="Image contains number card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card" weight=65 subcategory=Vision
+    //% group="Card" weight=65 
     //% color=#00B1ED
     export function numberCard(status: numberCards): boolean {
         if (DataBuff[0] == 2) {
@@ -485,7 +485,7 @@ namespace PlanetX_AILens {
     //% block="Image contains letter card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card" weight=60 subcategory=Vision
+    //% group="Card" weight=60 
     //% color=#00B1ED
     export function letterCard(status: letterCards): boolean {
         if (DataBuff[0] == 4) {
@@ -501,7 +501,7 @@ namespace PlanetX_AILens {
     //% block="Image contains traffic card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card" weight=55 subcategory=Vision
+    //% group="Card" weight=55 
     //% color=#00B1ED
     export function trafficCard(status: trafficCards): boolean {
         if (DataBuff[0] == 3) {
@@ -517,7 +517,7 @@ namespace PlanetX_AILens {
     //% block="Image contains other card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card" subcategory=Vision
+    //% group="Card" 
     //% color=#00B1ED
     export function otherCard(status: otherCards): boolean {
         if (DataBuff[0] == 3) {
@@ -527,7 +527,7 @@ namespace PlanetX_AILens {
             return false
     }
     //% block="In the image get Card(s)' total"
-    //% group="Card" weight=49 subcategory=Vision
+    //% group="Card" weight=49 
     //% color=#00B1ED
     export function cardTotalNum(): number {
         if (DataBuff[0] == 2 || DataBuff[0] == 3 || DataBuff[0] == 4) {
@@ -544,7 +544,7 @@ namespace PlanetX_AILens {
     //% block="In the image get Card(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Card" weight=45 subcategory=Vision
+    //% group="Card" weight=45 
     //% color=#00B1ED
     export function CardData(status: Cardstatus): number {
         if (DataBuff[0] == 2 || DataBuff[0] == 3 || DataBuff[0] == 4) {
@@ -578,7 +578,7 @@ namespace PlanetX_AILens {
     //% block="Image contains color card(s): %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Color" weight=30 subcategory=Vision
+    //% group="Color" weight=30 
     //% color=#00B1ED
     export function colorCheck(status: ColorLs): boolean {
         if (DataBuff[0] == 9) {
@@ -588,7 +588,7 @@ namespace PlanetX_AILens {
             return false
     }
     //% block="In the image get color card(s)' total"
-    //% group="Color" weight=29 subcategory=Vision
+    //% group="Color" weight=29 
     //% color=#00B1ED
     export function colorTotalNum(): number {
         if (DataBuff[0] == 9) {
@@ -605,7 +605,7 @@ namespace PlanetX_AILens {
     //% block="In the image get color card(s)' info: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Color" weight=25 subcategory=Vision
+    //% group="Color" weight=25 
     //% color=#00B1ED
     export function colorData(status: Colorstatus): number {
         if (DataBuff[0] == 9) {
@@ -641,7 +641,7 @@ namespace PlanetX_AILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
     //% group="Tracking"
-    //% weight=35 subcategory=Vision
+    //% weight=35 
     //% color=#00B1ED
     export function lineData(status: Linestatus): number {
         if (DataBuff[0] == 8) {
@@ -670,7 +670,7 @@ namespace PlanetX_AILens {
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=2
     //% group="Tracking"
-    //% weight=34 subcategory=Vision
+    //% weight=34 
     //% color=#00B1ED
     export function lineDirection(status: LineTrend): boolean {
         if (DataBuff[0] == 8) {
@@ -718,7 +718,7 @@ namespace PlanetX_AILens {
     //% block="Learn an object with: %thingsID"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Learn" weight=20 subcategory=Vision
+    //% group="Learn" weight=20 
     //% color=#00B1ED
     export function learnObject(thingsID: learnID): void {
         let thingsBuf = pins.createBuffer(9)
@@ -730,7 +730,7 @@ namespace PlanetX_AILens {
     * TODO: Clear Learned Objects
     */
     //% block="Clear learned objects"
-    //% group="Learn" weight=15 subcategory=Vision
+    //% group="Learn" weight=15 
     //% color=#00B1ED
     export function ClearlearnObject(): void {
         let thingsBuf = pins.createBuffer(9)
@@ -744,7 +744,7 @@ namespace PlanetX_AILens {
     //% block="Image contains learned objects: %status"
     //% status.fieldEditor="gridpicker"
     //% status.fieldOptions.columns=3
-    //% group="Learn" weight=14 subcategory=Vision
+    //% group="Learn" weight=14 
     //% color=#00B1ED
     export function objectCheck(status: learnID): boolean {
         if (DataBuff[0] == 10 && status == DataBuff[1]) {
@@ -762,7 +762,7 @@ namespace PlanetX_AILens {
     * TODO: Judge whether there are any learned objects in the picture
     */
     //% block="In the image get learn object %thingsID Confidence"
-    //% group="Learn" weight=10 subcategory=Vision
+    //% group="Learn" weight=10 
     //% color=#00B1ED
     export function objectConfidence(thingsID: learnID): number {
         if (DataBuff[0] == 10 && DataBuff[2] < 30) {
