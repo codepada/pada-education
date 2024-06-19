@@ -813,36 +813,10 @@ namespace RoboticWorkshop {
 
 }
 
-
-//% color=#E7734B icon="\uf2db"
-namespace GigoSensor {
-    //external button
-    export enum ButtonChannel {
-        //% block="A (P20)"
-        A,
-        //% block="E (P16)"
-        E,
-        //% block="F (P14)"
-        F,
-        //% block="G (P2)"
-        G,
-        //% block="H (P8)"
-        H,
-    }
-    export let ButtonChannels: { [key: number]: DigitalPin } = {
-        [ButtonChannel.A]: DigitalPin.P20,
-        [ButtonChannel.E]: DigitalPin.P16,
-        [ButtonChannel.F]: DigitalPin.P14,
-        [ButtonChannel.G]: DigitalPin.P2,
-        [ButtonChannel.H]: DigitalPin.P8,
-
-    }
-    //----------------------------------
-
 //% weight=5 color=#E7734B icon="\uf110"
 namespace GigoLED {
-        //----------------------------------
-        //led
+    //----------------------------------
+    //led
     export enum LEDChannel {
         //% block="A (P19)"
         A,
@@ -878,7 +852,7 @@ namespace GigoLED {
         HIGH,
 
     }
-        //----------------------------------
+    //----------------------------------
     //% color=#FACB09
     //% block="led $leds status $status"
     //% status.min=0 status.max=1
@@ -920,6 +894,33 @@ namespace GigoLED {
         }
     }
 }
+
+//% color=#E7734B icon="\uf2db"
+namespace GigoSensor {
+    //external button
+    export enum ButtonChannel {
+        //% block="A (P20)"
+        A,
+        //% block="E (P16)"
+        E,
+        //% block="F (P14)"
+        F,
+        //% block="G (P2)"
+        G,
+        //% block="H (P8)"
+        H,
+    }
+    export let ButtonChannels: { [key: number]: DigitalPin } = {
+        [ButtonChannel.A]: DigitalPin.P20,
+        [ButtonChannel.E]: DigitalPin.P16,
+        [ButtonChannel.F]: DigitalPin.P14,
+        [ButtonChannel.G]: DigitalPin.P2,
+        [ButtonChannel.H]: DigitalPin.P8,
+
+    }
+    //----------------------------------
+
+
 
     //external sensor
     export enum SensorChannel {
